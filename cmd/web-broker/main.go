@@ -11,7 +11,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/1r0npipe/web-broker/pkg/rest/endpoint"
+	endpoint "github.com/1r0npipe/web-broker/pkg/rest/endpoint"
 
 	service "github.com/1r0npipe/web-broker/listening/service"
 	file "github.com/1r0npipe/web-broker/pkg/storage/file"
