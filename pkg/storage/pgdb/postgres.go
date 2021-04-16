@@ -1,6 +1,6 @@
 package repository
 
-import "github.com/vlslav/web-broker/internal/pkg/model"
+import "github.com/vlslav/web-broker/pkg/model"
 
 type PgRepo struct{}
 

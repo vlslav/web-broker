@@ -2,8 +2,8 @@ package service
 
 import (
 	"log"
-
-	web_broker "github.com/vlslav/web-broker/pkg/web-broker"
+	
+	web_broker "github.com/vlslav/pkg/web-broker"
 )
 
 func (s *Service) Get(req *web_broker.GetValueReq) (*web_broker.GetValueResp, error) {

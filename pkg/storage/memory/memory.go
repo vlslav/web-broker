@@ -1,10 +1,14 @@
 package repository
 
-import "github.com/vlslav/web-broker/internal/pkg/model"
+import "github.com/vlslav/web-broker/pkg/model"
 
 type MemRepo struct{}
 
 func NewMemRepo() *MemRepo {
+	return &MemRepo{}
+}
+
+func (mr *MemRepo) New() *MemRepo {
 	return &MemRepo{}
 }
 

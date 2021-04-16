@@ -1,7 +1,7 @@
 package service
 
 import (
-	"github.com/vlslav/web-broker/internal/pkg/model"
+	"github.com/vlslav/web-broker/pkg/model"
 )
 
 type (
