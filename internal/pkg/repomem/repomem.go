@@ -1,10 +1,10 @@
-package repository
+package repomem
 
 import "github.com/vlslav/web-broker/internal/pkg/model"
 
 type MemRepo struct{}
 
-func NewMemRepo() *MemRepo {
+func New() *MemRepo {
 	return &MemRepo{}
 }
 
