@@ -2,11 +2,11 @@ package repository
 
 import "github.com/1r0npipe/web-broker/pkg/model"
 
-type MemRepo struct{}
+type MemRepo Storage
 
-func NewMemRepo() *MemRepo {
-	return &MemRepo{}
-}
+// func NewMemRepo() *MemRepo {
+// 	return &MemRepo{}
+// }
 
 func (mr *MemRepo) New() *MemRepo {
 	return &MemRepo{}

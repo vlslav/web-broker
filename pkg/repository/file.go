@@ -4,13 +4,11 @@ import (
 	"github.com/1r0npipe/web-broker/pkg/model"
 )
 
-type FileRepo struct {
-	fileName string
-}
+type FileRepo Storage
 
-func NewFileRepo(fileName string) *FileRepo {
-	return &FileRepo{fileName: fileName}
-}
+// func NewFileRepo(fileName string) *FileRepo {
+// 	return &FileRepo{fileName: fileName}
+// }
 
 func (fr *FileRepo) Get(getReq string) (string, error) {
 	// TODO: impl

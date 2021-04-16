@@ -2,11 +2,11 @@ package repository
 
 import "github.com/1r0npipe/web-broker/pkg/model"
 
-type PgRepo struct{}
+type PgRepo Storage
 
-func NewPgRepo() *PgRepo {
-	return &PgRepo{}
-}
+// func NewPgRepo() *PgRepo {
+// 	return &PgRepo{}
+// }
 
 func (pgr *PgRepo) Get(getReq string) (string, error) {
 	// TODO: impl
