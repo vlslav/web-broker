@@ -11,12 +11,12 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/vlslav/web-broker/pkg/rest/endpoint"
+	"github.com/1r0npipe/web-broker/pkg/rest/endpoint"
 
-	service "github.com/vlslav/web-broker/listening/service"
-	file "github.com/vlslav/web-broker/pkg/storage/file"
-	_ "github.com/vlslav/web-broker/pkg/storage/memory"
-	_ "github.com/vlslav/web-broker/pkg/storage/pgdb"
+	service "github.com/1r0npipe/web-broker/listening/service"
+	file "github.com/1r0npipe/web-broker/pkg/storage/file"
+	_ "github.com/1r0npipe/web-broker/pkg/storage/memory"
+	_ "github.com/1r0npipe/web-broker/pkg/storage/pgdb"
 )
 
 func main() {

@@ -3,8 +3,8 @@ package endpoint
 import (
 	"net/http"
 
+	web_broker "github.com/1r0npipe/web-broker/pkg/web-broker"
 	"github.com/gorilla/mux"
-	web_broker "github.com/vlslav/web-broker/pkg/web-broker"
 )
 
 type queueSvc interface {

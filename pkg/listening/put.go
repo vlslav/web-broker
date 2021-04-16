@@ -3,8 +3,8 @@ package service
 import (
 	"log"
 
-	"github.com/vlslav/web-broker/pkg/model"
-	web_broker "github.com/vlslav/pkg/web-broker"
+	"github.com/1r0npipe/web-broker/pkg/model"
+	web_broker "github.com/1r0npipe/pkg/web-broker"
 )
 
 func (s *Service) Put(req *web_broker.PutValueReq) error {
