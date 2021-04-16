@@ -11,8 +11,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/1r0npipe/web-broker/pkg/rest/endpoint"
-	"github.com/1r0npipe/web-broker/pkg/listening/service"
+	"github.com/1r0npipe/web-broker/pkg/endpoint"
+	"github.com/1r0npipe/web-broker/pkg/service"
 	"github.com/1r0npipe/web-broker/pkg/storage/file"
 	// "github.com/1r0npipe/web-broker/pkg/storage/memory"
 	// "github.com/1r0npipe/web-broker/pkg/storage/pgdb"
