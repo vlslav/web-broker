@@ -13,9 +13,7 @@ import (
 
 	"github.com/1r0npipe/web-broker/pkg/endpoint"
 	"github.com/1r0npipe/web-broker/pkg/service"
-	"github.com/1r0npipe/web-broker/pkg/storage/file"
-	// "github.com/1r0npipe/web-broker/pkg/storage/memory"
-	// "github.com/1r0npipe/web-broker/pkg/storage/pgdb"
+	"github.com/1r0npipe/web-broker/pkg/repository"
 )
 
 func main() {

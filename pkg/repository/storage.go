@@ -1,4 +1,4 @@
-package storage
+package repository
 
 type (
 
@@ -9,7 +9,7 @@ type (
 	RepoStorage interface{
 		New()
 	}
-	FileRepo Storage
+
 )
 
 // func New() RepoStorage {
