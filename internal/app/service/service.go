@@ -5,16 +5,16 @@ import (
 )
 
 type (
-	repo interface {
+	Repo interface {
 		Get(key string) (string, error)
 		Put(putReq *model.PutValue) error
 	}
 
 	Service struct {
-		repo repo
+		repo Repo
 	}
 )
 
-func New(repo repo) *Service {
+func New(repo Repo) *Service {
 	return &Service{repo: repo}
 }

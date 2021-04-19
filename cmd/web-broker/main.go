@@ -12,9 +12,9 @@ import (
 	"time"
 
 	"github.com/vlslav/web-broker/internal/app/endpoint"
+	"github.com/vlslav/web-broker/internal/pkg/repository"
 
 	"github.com/vlslav/web-broker/internal/app/service"
-	"github.com/vlslav/web-broker/internal/pkg/repository"
 )
 
 func main() {
@@ -22,9 +22,11 @@ func main() {
 
 	port := flag.String("port", "8000", "Port")
 	storageName := flag.String("storage", "storage.json", "data storage")
+	storageType := flag.String("storage_type", "file", "storage type: file, memory or postgres")
 	shutdownTimeout := flag.Int64("shutdown_timeout", 3, "shutdown timeout")
+	flag.Parse()
 
-	repo := repository.NewFileRepo(*storageName)
+	repo := repository.New(*storageName, *storageType)
 	svc := service.New(repo)
 
 	serv := http.Server{
