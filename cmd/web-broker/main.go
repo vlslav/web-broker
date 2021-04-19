@@ -15,6 +15,7 @@ import (
 
 	"github.com/vlslav/web-broker/internal/app/service"
 	"github.com/vlslav/web-broker/internal/pkg/repository"
+	clientPkg "github.com/vlslav/web-broker/internal/pkg/some-client"
 )
 
 func main() {
@@ -24,8 +25,13 @@ func main() {
 	storageName := flag.String("storage", "storage.json", "data storage")
 	shutdownTimeout := flag.Int64("shutdown_timeout", 3, "shutdown timeout")
 
-	repo := repository.NewFileRepo(*storageName)
-	svc := service.New(repo)
+	client := clientPkg.New()
+	//repo := repository.NewFileRepo(*storageName)
+	repo, err := repository.New(repository.FileRepoType, *storageName)
+	if err != nil {
+		log.Fatalf("something went wrong: %v", err)
+	}
+	svc := service.New(repo, client)
 
 	serv := http.Server{
 		Addr:    net.JoinHostPort("", *port),

@@ -5,16 +5,21 @@ import (
 )
 
 type (
-	repo interface {
+	Repo interface {
 		Get(key string) (string, error)
 		Put(putReq *model.PutValue) error
 	}
 
+	Client interface {
+		GetInfo() string
+	}
+
 	Service struct {
-		repo repo
+		repo   Repo
+		client Client
 	}
 )
 
-func New(repo repo) *Service {
-	return &Service{repo: repo}
+func New(repo Repo, client Client) *Service {
+	return &Service{repo: repo, client: client}
 }

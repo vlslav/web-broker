@@ -13,14 +13,14 @@ type queueSvc interface {
 }
 
 type PublicHTTP struct {
-	Router   *mux.Router
+	router   *mux.Router
 	queueSvc queueSvc
 }
 
 func RegisterPublicHTTP(queueSvc queueSvc) *mux.Router {
 	r := mux.NewRouter()
 	pHttp := &PublicHTTP{
-		Router:   r,
+		router:   r,
 		queueSvc: queueSvc,
 	}
 
@@ -30,14 +30,6 @@ func RegisterPublicHTTP(queueSvc queueSvc) *mux.Router {
 	return r
 }
 
-func (pHttp *PublicHTTP) putToQueue() http.HandlerFunc {
-	return func(w http.ResponseWriter, request *http.Request) {
-		// TODO: parse req and call queueSvc.Put(...)
-	}
-}
-
-func (pHttp *PublicHTTP) getFromQueue() http.HandlerFunc {
-	return func(w http.ResponseWriter, request *http.Request) {
-		// TODO: parse req and call queueSvc.Get(...)
-	}
+func (pHttp *PublicHTTP) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	pHttp.router.ServeHTTP(w, r)
 }
