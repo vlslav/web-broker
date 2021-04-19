@@ -12,22 +12,31 @@ type queueSvc interface {
 	Get(req *web_broker.GetValueReq) (*web_broker.GetValueResp, error)
 }
 
+type PublicHTTP struct {
+	Router   *mux.Router
+	queueSvc queueSvc
+}
+
 func RegisterPublicHTTP(queueSvc queueSvc) *mux.Router {
 	r := mux.NewRouter()
+	pHttp := &PublicHTTP{
+		Router:   r,
+		queueSvc: queueSvc,
+	}
 
-	r.HandleFunc("/{queue}", putToQueue(queueSvc)).Methods(http.MethodPut)
-	r.HandleFunc("/{queue}", getFromQueue(queueSvc)).Methods(http.MethodGet)
+	r.HandleFunc("/{queue}", pHttp.putToQueue()).Methods(http.MethodPut)
+	r.HandleFunc("/{queue}", pHttp.getFromQueue()).Methods(http.MethodGet)
 
 	return r
 }
 
-func putToQueue(queueSvc queueSvc) http.HandlerFunc {
+func (pHttp *PublicHTTP) putToQueue() http.HandlerFunc {
 	return func(w http.ResponseWriter, request *http.Request) {
 		// TODO: parse req and call queueSvc.Put(...)
 	}
 }
 
-func getFromQueue(queueSvc queueSvc) http.HandlerFunc {
+func (pHttp *PublicHTTP) getFromQueue() http.HandlerFunc {
 	return func(w http.ResponseWriter, request *http.Request) {
 		// TODO: parse req and call queueSvc.Get(...)
 	}
