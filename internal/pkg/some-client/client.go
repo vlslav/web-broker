@@ -8,7 +8,7 @@ func New() *Client {
 	return &Client{}
 }
 
-func (c *Client)GetInfo() string  {
+func (c *Client) GetInfo() string {
 	// TODO: logic
 	return ""
 }
