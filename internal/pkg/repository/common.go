@@ -14,7 +14,13 @@ const (
 func New(repoType int, args ...interface{}) (service.Repo, error) {
 	switch repoType {
 	case FileRepoType:
-		fileName := args[0].(string)
+		if len(args) < 1 {
+			return nil, fmt.Errorf("Not enough arguments!\n")
+		}
+		fileName, ok := args[0].(string)
+		if ok != true {
+			return nil, fmt.Errorf("Unsupported argument type!\n")
+		}
 		return NewFileRepo(fileName), nil
 	case MemoryRepoType:
 		return NewMemRepo(), nil
